@@ -5,8 +5,9 @@ import { addTransaction, updateAccountBalance } from '../../Redux/Features/trans
 import { RootState } from '../../Redux/Store/store';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import { NEW_TRANSACTION } from '../../Constants/Messages';
+import { CANT_PROCEED, NEW_TRANSACTION, SUCCESSFULLY_DEPOSIT, WITHDRAW_COMPLETED } from '../../Constants/Messages';
 import { IValues } from '../../Interfaces/Transaction/TransactionValue';
+import { ButtonType } from '../../Enum/ButtonType';
 
 interface IButtonData {
   id: number,
@@ -38,21 +39,21 @@ const NewTransaction = (prop: INewTransaction) => {
   const handleTransaction = (value: IValues) => {    
     const data = {transaction: value};
     
-    if(btnType === 'DEPOSIT'){
+    if(btnType === ButtonType.DEPOSIT){
      dispatch(updateAccountBalance(newAccBalance + value.amount))
      dispatch(addTransaction(data));
-     toast.success("Successfully Deposited !", {
+     toast.success(SUCCESSFULLY_DEPOSIT, {
         position: toast.POSITION.TOP_CENTER
       });
     } else {
      if((newAccBalance - value.amount) !== 0 && (newAccBalance - value.amount) > 0) {
        dispatch(updateAccountBalance(newAccBalance - value.amount))
        dispatch(addTransaction(data));
-       toast.success("Withdraw is completed !", {
+       toast.success(WITHDRAW_COMPLETED, {
         position: toast.POSITION.TOP_CENTER
       });
      } else {
-        toast.error("Can't proceed. Don't have enough account balance !", {
+        toast.error(CANT_PROCEED, {
             position: toast.POSITION.TOP_CENTER
         });
      }
@@ -67,13 +68,13 @@ const NewTransaction = (prop: INewTransaction) => {
         <p className='text-xl font-semibold text-primary pb-[32px] text-center'>{NEW_TRANSACTION}</p>
         <div className='flex flex-col pt-[67px] gap-11'>
            {prop.buttonData?.map(btn => (
-            <button key={btn.id} onClick={() => openModal(btn.type)} className={`${btn.btnTextColor} px-4 w-auto h-[51px] ${btn.btnColor} rounded-[10px] active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none`}>
+            <button key={btn.id} onClick={() => openModal(btn.type)} data-testid="transaction-button" className={`${btn.btnTextColor} px-4 w-auto h-[51px] ${btn.btnColor} rounded-[10px] active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none`}>
               <p className='text-xl font-medium'>{btn.title}</p>
             </button>
            ))}
         </div>
         {modalIsOpen ? (
-           <TransactionModal btnType={btnType} handleTransaction={handleTransaction} handleModalOpen={handleModalOpen} />
+           <TransactionModal btnType={btnType} handleTransaction={handleTransaction} handleModalOpen={handleModalOpen} data-testid="transaction-modal"/>
          ) : null}
         <ToastContainer />
     </div>

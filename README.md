@@ -5,6 +5,8 @@ In the project directory, you can run, Please use following commands
 01: `npm install`
 02: `npm start`
 
+if you need to run unit tests use `npm test`
+
 ## All commands
 
 ### `npm install`

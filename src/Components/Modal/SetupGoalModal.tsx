@@ -11,7 +11,6 @@ interface ISetupGoalModal {
 }
 
 const SetupGoalModal = (prop: ISetupGoalModal) => {
-
   const validationSchema = yup.object().shape({
     goal: yup.string().required("Required"),
   });

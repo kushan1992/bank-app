@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Banner from '../Components/Banner/Banner';
 import ImageCard from '../Components/ImageCard/ImageCard';
 import Goal from '../Components/Goal/Goal';
 import Chart from '../Components/Chart/Chart';
 import { SAVING_BANNER_TEXT } from '../Constants/Messages';
-const image =  require("../public/assets/images/bank-savings.jpg");
+const image = require("../public/assets/images/bank-savings.jpg");
 
 const Savings = () => {
     return (

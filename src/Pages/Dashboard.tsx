@@ -6,6 +6,7 @@ import NewTransaction from '../Components/NewTransaction/NewTransaction';
 import { useSelector } from 'react-redux';
 import { RootState } from '../Redux/Store/store';
 import { DEPOSIT, WITHDRAW } from '../Constants/Messages';
+import { ButtonType } from '../Enum/ButtonType';
 const image =  require("../public/assets/images/bank-dashboard.jpg");
 
 const buttonData = [
@@ -14,14 +15,14 @@ const buttonData = [
   title: DEPOSIT,
   btnColor: 'bg-color-secondary',
   btnTextColor: 'text-primary',
-  type: 'DEPOSIT'
+  type: ButtonType.DEPOSIT
 },
 {
   id: 2,
   title: WITHDRAW,
   btnColor: 'bg-color-primary',
   btnTextColor: 'text-white',
-  type: 'WITHDRAW'
+  type: ButtonType.WITHDRAW
 }]
 
 const Dashboard = () => {

@@ -10,8 +10,8 @@ import { SETUP_GOAL } from '../../Constants/Messages';
 interface ISetupGoal {
     goal: number
 }
-interface IGoal {}
-const Goal = (prop: IGoal) => {
+
+const Goal = () => {
 const [modalIsOpen, setModalIsOpen] = useState(false);
 const { goal } = useSelector((state: RootState) => state.goal);
 const dispatch = useDispatch();

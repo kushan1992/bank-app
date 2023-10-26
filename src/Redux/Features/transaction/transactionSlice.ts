@@ -1,19 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IInitialState } from "../../../Interfaces/Redux/TransactionSlice";
+import { transactionData } from "../../../Data/TransactionData";
 
-export interface ITransaction {
-  id: string,
-  amount: number,
-  remark?: string,
-  type: string,
-  date: string
-}
-export interface IInitialState {
-  accountBalance: number,
-  transaction: ITransaction[]
-}
 const initialState: IInitialState = {
-  accountBalance: 0,
-  transaction: [],
+  accountBalance: 1000,
+  transaction: transactionData,
 }
 
 const transactionSlice = createSlice({

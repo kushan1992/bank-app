@@ -7,7 +7,7 @@ import Header from './Components/Header/Header';
 function App() {
   return (
     <>
-     <body className="flex flex-row h-screen">
+     <div className="flex flex-row h-screen">
         <aside className="h-screen flex">
           <Navbar />
         </aside>
@@ -21,7 +21,7 @@ function App() {
             </main>
           </div>
         </div>
-      </body>
+      </div>
     </>
   );
 }

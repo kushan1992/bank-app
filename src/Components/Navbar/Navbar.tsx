@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTableColumns, faPiggyBank } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
+import { BANK } from '../../Constants/Messages';
 
 const Navbar = () => {
   
@@ -9,7 +10,7 @@ const Navbar = () => {
     <nav className="bg-white w-[7.125rem] justify-between flex flex-col border border-l-0 border-t-0 border-b-0 border-r-gray border-opacity-50">
         <div className="mt-10 mb-10 self-center">
           <div>
-            <p className="text-xl font-bold">Bank</p>
+            <p className="text-xl font-bold">{BANK}</p>
           </div>
           <div className="mt-10">
             <ul>

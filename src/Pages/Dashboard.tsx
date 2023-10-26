@@ -5,19 +5,20 @@ import RecentTransaction from '../Components/RecentTransaction/RecentTransaction
 import NewTransaction from '../Components/NewTransaction/NewTransaction';
 import { useSelector } from 'react-redux';
 import { RootState } from '../Redux/Store/store';
+import { DEPOSIT, WITHDRAW } from '../Constants/Messages';
 const image =  require("../public/assets/images/bank-dashboard.jpg");
 
 const buttonData = [
 {
   id: 1,
-  title: 'Deposit',
+  title: DEPOSIT,
   btnColor: 'bg-color-secondary',
   btnTextColor: 'text-primary',
   type: 'DEPOSIT'
 },
 {
   id: 2,
-  title: 'Withdraw',
+  title: WITHDRAW,
   btnColor: 'bg-color-primary',
   btnTextColor: 'text-white',
   type: 'WITHDRAW'

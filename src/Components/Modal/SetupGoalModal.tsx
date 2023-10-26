@@ -1,10 +1,8 @@
 import React from 'react';
 import { Formik } from 'formik';
 import * as yup from "yup";
-
-interface IValues {
-    goal: number,
-}
+import { CANCEL_BUTTON, SETUP_GOAL, SUBMIT_BUTTON } from '../../Constants/Messages';
+import { IValues } from '../../Interfaces/GoalValue/GoalValue';
 
 interface ISetupGoalModal {
   handleGoal: (values: IValues) => void;
@@ -24,8 +22,7 @@ const SetupGoalModal = (prop: ISetupGoalModal) => {
     <div className="w-full max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg bg-white ">
       <div className="">
         <div className="p-5 flex-auto justify-center">
-             
-              <h1 className="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4">Set up the goal</h1>
+              <h1 className="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4">{SETUP_GOAL}</h1>
               <Formik
                 initialValues={{ goal: prop.existingGoal}}
                 validationSchema={validationSchema}
@@ -53,8 +50,8 @@ const SetupGoalModal = (prop: ISetupGoalModal) => {
                     <p className="text-sm text-red-400">{errors.goal && touched.goal && errors.goal}</p>
                   </div>
                   <div className="flex items-center justify-start w-full">
-                      <button type="submit" disabled={isSubmitting} className="focus:outline-none focus:ring-2 focus:ring-offset-2 bg-color-button focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">Submit</button>
-                      <button onClick={() => prop.handleModalOpen(false)} className="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm">Cancel</button>
+                      <button type="submit" disabled={isSubmitting} className="focus:outline-none focus:ring-2 focus:ring-offset-2 bg-color-button focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">{SUBMIT_BUTTON}</button>
+                      <button onClick={() => prop.handleModalOpen(false)} className="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm">{CANCEL_BUTTON}</button>
                   </div>
               </form>
               )}

@@ -3,6 +3,7 @@ import Banner from '../Components/Banner/Banner';
 import ImageCard from '../Components/ImageCard/ImageCard';
 import Goal from '../Components/Goal/Goal';
 import Chart from '../Components/Chart/Chart';
+import { SAVING_BANNER_TEXT } from '../Constants/Messages';
 const image =  require("../public/assets/images/bank-savings.jpg");
 
 const Savings = () => {
@@ -16,7 +17,7 @@ const Savings = () => {
             </div>
             <div className="basis-2/6">
                 <div className="flex flex-col gap-9">
-                    <Banner text="Your one step closer to saving for the trip of your dream" />
+                    <Banner text={SAVING_BANNER_TEXT} />
                     <ImageCard image={image} />
                 </div>
             </div>

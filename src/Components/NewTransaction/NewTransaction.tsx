@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import TransactionModal from '../Modal/TransactionModal';
 import { useDispatch, useSelector } from 'react-redux';
-import { IInitialState, addTransaction, updateAccountBalance } from '../../Redux/Features/transaction/transactionSlice';
+import { addTransaction, updateAccountBalance } from '../../Redux/Features/transaction/transactionSlice';
 import { RootState } from '../../Redux/Store/store';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-
-export interface IValues {
-    id: string,
-    amount: number, 
-    remark: string,
-    type: string,
-    date: string,
-}
+import { NEW_TRANSACTION } from '../../Constants/Messages';
+import { IValues } from '../../Interfaces/Transaction/TransactionValue';
 
 interface IButtonData {
   id: number,
@@ -69,8 +63,8 @@ const NewTransaction = (prop: INewTransaction) => {
     setModalIsOpen(isOpen);
   }  
   return (
-    <div className='bg-[#FFF9E8] h-[380px] rounded-[25px] pt-[46px] pl-[25px] pr-[25px] divide-y divide-slate-200'>
-        <p className='text-xl font-semibold text-primary pb-[32px] text-center'>New Transaction</p>
+    <div className='bg-[#FFF9E8] h-[380px] rounded-[25px] pt-[46px] pl-[25px] pr-[25px]'>
+        <p className='text-xl font-semibold text-primary pb-[32px] text-center'>{NEW_TRANSACTION}</p>
         <div className='flex flex-col pt-[67px] gap-11'>
            {prop.buttonData?.map(btn => (
             <button key={btn.id} onClick={() => openModal(btn.type)} className={`${btn.btnTextColor} px-4 w-auto h-[51px] ${btn.btnColor} rounded-[10px] active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none`}>

@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IInitialState } from "../../../Interfaces/Redux/GoalSlice";
 
-export interface IInitialState {
-    goal: number,
-}
 const initialState: IInitialState = {
     goal: 0,
 }

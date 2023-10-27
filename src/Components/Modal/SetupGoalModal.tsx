@@ -12,7 +12,7 @@ interface ISetupGoalModal {
 
 const SetupGoalModal = (prop: ISetupGoalModal) => {
   const validationSchema = yup.object().shape({
-    goal: yup.string().required("Required"),
+    goal: yup.number().required("Required").min(0, 'Number cannot be negative'),
   });
   
   return (

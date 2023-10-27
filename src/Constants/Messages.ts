@@ -11,3 +11,4 @@ export const RECENT_TRANSACTION = 'Recent Transaction';
 export const SUCCESSFULLY_DEPOSIT = 'Successfully Deposited !';
 export const WITHDRAW_COMPLETED = 'Withdraw is completed !';
 export const CANT_PROCEED = `Can not proceed. Do not have enough account balance !`;
+export const ACHIEVED_GOAL = 'You achieved your goal !'

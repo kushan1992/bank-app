@@ -14,7 +14,7 @@ interface ITransactionModal {
 const TransactionModal = (prop: ITransactionModal) => {
 
   const validationSchema = yup.object().shape({
-    amount: yup.string().required("Required"),
+    amount: yup.number().required("Required").min(0, 'Number cannot be negative'),
     remark: yup.string().required("Required")
   });
   
